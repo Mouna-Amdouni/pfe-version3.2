@@ -1,0 +1,379 @@
+{#{% extends "adminbase.html.twig" %}#}
+
+
+{#{% block bars %}#}
+
+{#    <div class="col-md-3 left_col menu_fixed">#}
+{#        <div class="left_col scroll-view">#}
+{#            <div class="navbar nav_title" style="border: 0;">#}
+{#                <a href="{{ path('app_admin_index') }}" class="site_title"><i class="fa fa-paw"></i> <span>Associations pour </br> tous</span></a>#}
+
+
+{#                <a href="{{ path('indexx') }}" class="site_title"> <span>Associations pour tous</span></a>#}
+
+{#            </div>#}
+
+
+{#            <div class="clearfix"></div>#}
+
+{#            <!-- menu profile quick info -->#}
+{#            <div class="profile clearfix">#}
+{#                <div class="profile_pic">#}
+{#                    {% if is_granted('ROLE_ADMIN') %}#}
+{#                    <img src="{{ app.user.avatarUrl(50) }}" alt="..." class="img-circle profile_img">#}
+{#                    {% endif %}#}
+{#                </div>#}
+{#                <div class="profile_info">#}
+{#                    <span>{{ "backend.global.welcome"|trans }},</span>#}
+{#                    {% if app.user %}#}
+{#                    <h2>👋 {{ app.user.nomComplet }}</h2>#}
+
+{#                    {% else %}#}
+{#                        <h1>salut user!</h1>#}
+{#                    {% endif %}#}
+{#                </div>#}
+{#            </div>#}
+{#            <!-- /menu profile quick info -->#}
+
+{#            <br />#}
+
+{#            <!-- sidebar menu -->#}
+{#            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu ">#}
+{#                <div class="menu_section">#}
+{#                    <ul class="nav side-menu">#}
+{#                        <li><a href="{{ path('indexx') }}"><i class="fa fa-home"></i> {{ "backend.menu.home"|trans }}</a>#}
+{#                        </li>#}
+{#                        <li><a href="{{ path('association_index_user') }}"><i class="fa fa-home"></i> voir toutes les associations tunisiennes</a>#}
+{#                        </li>#}
+{#                        <li><a href="{{ path('opportunitesUser') }}"><i class="fa fa-home"></i> voir toutes les opportunites </a>#}
+{#                        </li>#}
+
+{#                        {% if is_granted("ROLE_SUPERUSER") %}#}
+
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link js-scroll" href="{{path('contact')}}"><i class="far fa-comment-dots"></i> Contact</a>#}
+{#                                                        <a class="nav-link js-scroll" href="{{path('adminchats')}}"><i class="far fa-comment-dots"></i> gerer toutes les conversations</a>#}
+
+{#                        </li>#}
+{#                        {% endif %}#}
+
+
+{#                            <li><a><i class="fa fa-user"></i> {{ "backend.menu.user"|trans }} <span class="fa fa-chevron-down"></span></a>#}
+{#                                <ul class="nav child_menu">#}
+{#                                    <li><a href="{{ path('forums') }}">{{ "backend.menu.manage"|trans }}</a></li>#}
+{#                                </ul>#}
+{#                            </li>#}
+
+
+
+{#                        {% if is_granted("ROLE_SUPERUSER") %}#}
+{#                        <li><a><i class="fa fa-user"></i> {{ "backend.menu.user"|trans }} <span class="fa fa-chevron-down"></span></a>#}
+{#                            <ul class="nav child_menu">#}
+{#                                <li><a href="{{ path('app_admin_users') }}">{{ "backend.menu.manage"|trans }}</a></li>#}
+{#                            </ul>#}
+{#                        </li>#}
+
+{#                        {% endif %}#}
+{#                        {% if is_granted("ROLE_SUPERUSER") %}#}
+{#                            <li><a><i class="fa fa-user"></i> {{ "backend.menu.association"|trans }} <span class="fa fa-chevron-down"></span></a>#}
+{#                                <ul class="nav child_menu">#}
+{#                                    <li><a href="{{ path('association_index') }}">{{ "backend.menu.manage"|trans }}</a></li>#}
+{#                                </ul>#}
+{#                            </li>#}
+
+{#                        {% endif %}#}
+
+{#                         {% if is_granted("ROLE_PASSOCIATION") %}#}
+{#                        <li><a><i class="fa fa-diamond"></i> {{ "backend.menu.opportunity"|trans }} <span class="fa fa-chevron-down"></span></a>#}
+{#                            <ul class="nav child_menu">#}
+{#                                <li><a href="{{ path('opportunite_index') }}">{{ "backend.menu.manage"|trans }}</a></li>#}
+{#                            </ul>#}
+{#                        </li>#}
+
+{#                        {% endif %}#}
+{#                        {% if is_granted("ROLE_CONSULTANT") %}#}
+
+{#                            <li><a><i class="fa fa-user"></i> Chats <span class="fa fa-chevron-down"></span></a>#}
+{#                                <ul class="nav child_menu">#}
+{#                                    <li><a href="{{ path('forumsall') }}">{{ "backend.menu.manage"|trans }} vos messages</a></li>#}
+{#                                </ul>#}
+{#                            </li>#}
+
+{#                        {% endif %}#}
+{#                        {% if is_granted("ROLE_PASSOCIATION") %}#}
+
+{#                            <li><a><i class="fa fa-user"></i> {{ "backend.menu.association"|trans }} <span class="fa fa-chevron-down"></span></a>#}
+{#                                <ul class="nav child_menu">#}
+{#                                    <li><a href="{{ path('association_indexP') }}">{{ "backend.menu.manage"|trans }} vos associations</a></li>#}
+{#                                </ul>#}
+{#                            </li>#}
+
+{#                        {% endif %}#}
+{#                        {% if is_granted("ROLE_PASSOCIATION") %}#}
+
+{#                            <li><a><i class="fa fa-user"></i>Chatter avec un consultant <span class="fa fa-chevron-down"></span></a>#}
+{#                                <ul class="nav child_menu">#}
+{#                                    <li><a href="{{ path('forums') }}">{{ "backend.menu.manage"|trans }} vos associations</a></li>#}
+{#                                </ul>#}
+{#                            </li>#}
+
+{#                        {% endif %}#}
+{#                        {% if is_granted("ROLE_WRITER") %}#}
+{#                        <li><a><i class="fa fa-bookmark"></i>{{ "backend.menu.categories"|trans }} <span class="fa fa-chevron-down"></span></a>#}
+{#                            <ul class="nav child_menu">#}
+{#                                <li><a href="{{ path('app_admin_categories') }}">{{ "backend.menu.manage"|trans }}</a></li>#}
+{#                            </ul>#}
+{#                        </li>#}
+{#                        <li><a><i class="fa fa-clipboard"></i> {{ "backend.menu.blog"|trans }} <span class="fa fa-chevron-down"></span></a>#}
+{#                            <ul class="nav child_menu">#}
+{#                                <li><a href="{{ path('app_admin_blogPosts') }}">{{ "backend.menu.manage"|trans }}</a></li>#}
+{#                                {% if is_granted("ROLE_EDITORIAL") %}#}
+{#                                    <li><a href="{{ path('app_admin_allhistorique_blogPosts') }}">{{ "backend.menu.history"|trans }}</a></li>#}
+{#                                {% endif %}#}
+{#                            </ul>#}
+{#                        </li>#}
+{#                        {% endif %}#}
+{#                    </ul>#}
+{#                </div>#}
+
+{#            </div>#}
+{#            <!-- /sidebar menu -->#}
+
+{#            <!-- /menu footer buttons -->#}
+{#        </div>#}
+{#    </div>#}
+
+{#    <!-- top navigation -->#}
+{#    <div class="top_nav">#}
+{#        <div class="nav_menu">#}
+{#            <div class="nav toggle">#}
+{#                <a id="menu_toggle"><i class="fa fa-bars"></i></a>#}
+{#            </div>#}
+{#            {% if app.user %}#}
+
+{#            <nav  style="height:20px" class="navbar-right">#}
+{#                <ul>#}
+{#                    <li class="nav-item dropdown open" style="padding-left: 150px;">#}
+{#                        <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">#}
+{#                            <img  style="width: 40px; height: 30px" src=" {{ asset('uploads/images/'  ~ app.user.logo) }}" alt="Awesome Image">#}
+{#                            {{ app.user.nomComplet }}#}
+{#                        </a>#}
+{#                        <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">#}
+{#                            <a class="dropdown-item"  href="{{ path('changepass') }}"><i class="fa fa-key pull-right"></i>{{ "backend.global.change_my_password"|trans }}</a>#}
+{#                            <a class="dropdown-item"  href="{{ path('app_logout') }}"><i class="fa fa-sign-out pull-right"></i>{{ "backend.global.logout"|trans }}</a>#}
+{#                            <a class="dropdown-item" href="{{ path('userr_edit',{"id":app.user.id}) }}">Modifier votre compte</a>#}
+
+{#                        </div>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </nav>#}
+{#        {% else %}#}
+
+
+{#            <a  href="#"><h5 class="navbar-right">cnx +inscrit</h5></a>#}
+{#            {% endif%}#}
+
+{#        </div>#}
+{#    </div>#}
+
+
+{#    <!-- page content -->#}
+{#    <div class="right_col" role="main">#}
+{#        {% for message in app.flashes("error") %}#}
+{#            <div class="alert alert-danger alert-dismissible " role="alert">#}
+{#                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>#}
+{#                </button>#}
+{#                <strong>{{ "backend.global.error"|trans }}</strong> {{ message }}#}
+{#            </div>#}
+{#        {% endfor %}#}
+{#        {% for message in app.flashes("success") %}#}
+{#            <div class="alert alert-success alert-dismissible " role="alert">#}
+{#                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>#}
+{#                </button>#}
+{#                <strong>{{ "backend.global.success"|trans }}</strong> {{ message }}#}
+{#            </div>#}
+{#        {% endfor %}#}
+{#        {% block contenpage %}{% endblock %}#}
+{#    </div>#}
+{#    <!-- /page content -->#}
+
+
+{#{% endblock %}#}
+{% extends "adminbase.html.twig" %}
+
+
+{% block bars %}
+
+    <div class="col-md-3 left_col menu_fixed">
+        <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+                {#                <a href="{{ path('app_admin_index') }}" class="site_title"><i class="fa fa-paw"></i> <span>Associations pour </br> tous</span></a>#}
+
+
+                <a href="{{ path('indexx') }}" class="site_title"> <span>Associations pour tous</span></a>
+
+            </div>
+
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+                <div class="profile_pic">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <img src="{{ app.user.avatarUrl(50) }}" alt="..." class="img-circle profile_img">
+                    {% endif %}
+                </div>
+                <div class="profile_info">
+                    <span>{{ "backend.global.welcome"|trans }},</span>
+                    {% if app.user %}
+                        <h2>👋 {{ app.user.nomComplet }}</h2>
+
+                    {% else %}
+                        <h1>salut user!</h1>
+                    {% endif %}
+                </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu ">
+                <div class="menu_section">
+                    <ul class="nav side-menu">
+                        <li><a href="{{ path('indexx') }}"><i class="fa fa-home"></i> {{ "backend.menu.home"|trans }}</a>
+                        </li>
+                        <li><a href="{{ path('association_index_user') }}"><i class="fa fa-users"></i>Associations</a>
+                        </li>
+
+                        {% if is_granted("ROLE_PASSOCIATION") %}
+                            <li><a href="{{ path('consultant_index_user') }}"><i class="fa fa-briefcase"></i>Consultants</a></li>
+
+                        {% endif %}
+
+                        <li><a href="{{ path('opportunitesUser') }}"><i class="fa fa-diamond""></i>Opportunités </a>
+                        </li>
+                        {% if is_granted("ROLE_SUPERUSER") %}
+
+                            <li><a><i class="glyphicon glyphicon-envelope"></i> Conversation <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{path('adminchats')}}">{{ "backend.menu.manage"|trans }}</a></li>
+                                </ul>
+                            </li>
+
+                        {% endif %}
+                        {#                            <li><a><i class="fa fa-user"></i> {{ "backend.menu.user"|trans }} <span class="fa fa-chevron-down"></span></a>#}
+                        {#                                <ul class="nav child_menu">#}
+                        {#                                    <li><a href="{{ path('forums') }}">{{ "backend.menu.manage"|trans }}</a></li>#}
+                        {#                                </ul>#}
+                        {#                            </li>#}
+                        {% if is_granted("ROLE_SUPERUSER") %}
+                            <li><a><i class="fa fa-user"></i> {{ "backend.menu.user"|trans }} <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_admin_users') }}">{{ "backend.menu.manage"|trans }}</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                        {% if is_granted("ROLE_SUPERUSER") %}
+                            <li><a><i class="fa fa-users"></i> {{ "backend.menu.association"|trans }} <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('association_index') }}">{{ "backend.menu.manage"|trans }}</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                        {% if is_granted("ROLE_PASSOCIATION") %}
+                            <li><a><i class="fa fa-diamond"></i> {{ "backend.menu.opportunity"|trans }} <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('opportunite_index') }}">{{ "backend.menu.manage"|trans }} vos opportunités</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                        {% if is_granted("ROLE_CONSULTANT") %}
+                            <li><a href="{{ path('forumsall') }}"><i class="glyphicon glyphicon-envelope"></i> Conversations</a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted("ROLE_CONSULTANT") %}
+                            {#                            <li><a href="{{ path('service_index') }}"><i class="fas fa-american-sign-language-interpreting"></i> Services</a>#}
+                            {#                            </li>#}
+                        {% endif %}
+                        {% if is_granted("ROLE_PASSOCIATION") %}
+                            <li><a><i class="fa fa-user"></i> {{ "backend.menu.association"|trans }} <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('association_indexP') }}">{{ "backend.menu.manage"|trans }} vos associations</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                        {% if is_granted("ROLE_PASSOCIATION") %}
+                            <li><a href="{{ path('forums') }}"><i class="glyphicon glyphicon-envelope"></i>  Boite à Reception </a>
+                            </li>
+                        {% endif %}
+                        {#                        {% if is_granted("ROLE_WRITER") %}#}
+                        {#                        <li><a><i class="fa fa-bookmark"></i>{{ "backend.menu.categories"|trans }} <span class="fa fa-chevron-down"></span></a>#}
+                        {#                            <ul class="nav child_menu">#}
+                        {#                                <li><a href="{{ path('app_admin_categories') }}">{{ "backend.menu.manage"|trans }}</a></li>#}
+                        {#                            </ul>#}
+                        {#                        </li>#}
+                        {#                        <li><a><i class="fa fa-clipboard"></i> {{ "backend.menu.blog"|trans }} <span class="fa fa-chevron-down"></span></a>#}
+                        {#                            <ul class="nav child_menu">#}
+                        {#                                <li><a href="{{ path('app_admin_blogPosts') }}">{{ "backend.menu.manage"|trans }}</a></li>#}
+                        {#                                {% if is_granted("ROLE_EDITORIAL") %}#}
+                        {#                                    <li><a href="{{ path('app_admin_allhistorique_blogPosts') }}">{{ "backend.menu.history"|trans }}</a></li>#}
+                        {#                                {% endif %}#}
+                        {#                            </ul>#}
+                        {#                        </li>#}
+                        {#                        {% endif %}#}
+                    </ul>
+                </div>
+            </div>
+            <!-- /sidebar menu -->
+            <!-- /menu footer buttons -->
+        </div>
+    </div>
+    <!-- top navigation -->
+    <div class="top_nav">
+        <div class="nav_menu">
+            <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+            {% if app.user %}
+                <nav  style="height:20px" class="navbar-right">
+                    <ul>
+                        <li class="nav-item dropdown open" style="padding-left: 150px;">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                                <img  style="width: 40px; height: 30px" src=" {{ asset('uploads/images/'  ~ app.user.logo) }}" alt="Awesome Image">
+                                {{ app.user.nomComplet }}
+                            </a>
+                            <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"  href="{{ path('changepass') }}"><i class="fa fa-key pull-right"></i>{{ "backend.global.change_my_password"|trans }}</a>
+                                <a class="dropdown-item"  href="{{ path('app_logout') }}"><i class="fa fa-sign-out pull-right"></i>{{ "backend.global.logout"|trans }}</a>
+                                <a class="dropdown-item" href="{{ path('userr_edit',{"id":app.user.id}) }}">Modifier votre compte</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            {% else %}
+                <a  href="#"><h5 class="navbar-right">cnx +inscrit</h5></a>
+            {% endif%}
+        </div>
+    </div>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        {% for message in app.flashes("error") %}
+            <div class="alert alert-danger alert-dismissible " role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <strong>{{ "backend.global.error"|trans }}</strong> {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes("success") %}
+            <div class="alert alert-success alert-dismissible " role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <strong>{{ "backend.global.success"|trans }}</strong> {{ message }}
+            </div>
+        {% endfor %}
+        {% block contenpage %}{% endblock %}
+    </div>
+    <!-- /page content -->
+{% endblock %}
