@@ -71,6 +71,16 @@ class OpportuniteRepository extends ServiceEntityRepository
     }
 
 
+    public function changeValidite(Opportunite $opportunite){
+        if ($opportunite->isValid())
+            $opportunite->setIsValid(false);
+        else
+            $opportunite->setIsValid(true);
+        $this->entityManager->persist($opportunite);
+        $this->entityManager->flush();
+        return $opportunite;
+    }
+
 
 
 }

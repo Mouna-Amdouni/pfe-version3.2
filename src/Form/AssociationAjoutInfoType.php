@@ -65,19 +65,19 @@ class AssociationAjoutInfoType extends AbstractType
             ->add('facebook',
                 TextType::class, [
                     'required' => true,
-                    'label' => "ajouter votre site web",
+                    'label' => "ajouter votre lien facebook",
                     'attr' => ['class' => 'form-control']
                 ])
             ->add('instagram',
                 TextType::class, [
                     'required' => true,
-                    'label' => "ajouter votre site web",
+                    'label' => "ajouter votre lien instagram",
                     'attr' => ['class' => 'form-control']
                 ])
             ->add('twitter',
                 TextType::class, [
                     'required' => true,
-                    'label' => "ajouter votre site web",
+                    'label' => "ajouter votre lien twitter",
                     'attr' => ['class' => 'form-control']
                 ])
             ->add('dateFondation',

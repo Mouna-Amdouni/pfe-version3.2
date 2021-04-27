@@ -9,6 +9,7 @@ use App\Entity\User;
 use App\Form\ChangePwsdFormType;
 use App\Form\UserFormType;
 use App\Repository\RoleRepository;
+use App\Repository\ServiceRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -232,10 +233,12 @@ class UserController extends BaseController
      * @Route("/ConsultantUser", name="consultant_index_user", methods={"GET"})
 
      */
-    public function indexUserConsultants(UserRepository $userRepository)
+    public function indexUserConsultants(ServiceRepository $serviceRepository,UserRepository $userRepository)
     {  $users=$this->userRepository->findAll();
+    $services=$serviceRepository->findAll();
         return $this->render('Visiteur/consultants.html.twig', [
-            'users' => $users
+            'users' => $users,
+            'services'=>$services
         ]);
     }
 

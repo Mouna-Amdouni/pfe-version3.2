@@ -196,6 +196,7 @@ $ass=$associationRepository->find($id);
             }
             $opportunite->setImage($fileName);
             $opportunite->setLanceur($user);
+            $opportunite->setIsValid(0);
 //$opportunite->setDateLimite(date_create('Y-m-d H:i:s'));
             $opportunite->setAssociation($ass);
             $opportunite=$form->getData();
@@ -293,4 +294,14 @@ $ass=$associationRepository->find($id);
 
 
     }
+
+    /**
+     * @Route("/changevalidite/{id}",name="changevalidite_opportunite",methods={"post"})
+     * @IsGranted("ROLE_SUPERUSER")
+     */
+    public function activate(Opportunite $opportunite,OpportuniteRepository $opportuniteRepository){
+        $opportunite = $opportuniteRepository->changeValidite($opportunite);
+        return $this->json(["message"=>"success","value"=>$opportunite->getIsValid()]);
+    }
+
     }

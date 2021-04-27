@@ -247,22 +247,28 @@
                         <li><a href="{{ path('association_index_user') }}"><i class="fa fa-users"></i>Associations</a>
                         </li>
 
-                        {% if is_granted("ROLE_PASSOCIATION") %}
+                        {% if is_granted("ROLE_PASSOCIATION")   %}
                             <li><a href="{{ path('consultant_index_user') }}"><i class="fa fa-briefcase"></i>Consultants</a></li>
 
                         {% endif %}
 
-                        <li><a href="{{ path('opportunitesUser') }}"><i class="fa fa-diamond""></i>Opportunités </a>
+                        <li><a href="{{ path('opportunitesUser') }}"><i class="fa fa-diamond"></i>Opportunités </a>
                         </li>
                         {% if is_granted("ROLE_SUPERUSER") %}
 
-                            <li><a><i class="glyphicon glyphicon-envelope"></i> Conversation <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="glyphicon glyphicon-envelope"></i> Gérer les Conversation <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{path('adminchats')}}">{{ "backend.menu.manage"|trans }}</a></li>
                                 </ul>
                             </li>
 
+                            <li><a><i class="fa fa-diamond"></i>  Gèrer les opportunités <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('opportunitesAdmin') }}">{{ "backend.menu.manage"|trans }}</a></li>
+                                </ul>
+                            </li>
                         {% endif %}
+
                         {#                            <li><a><i class="fa fa-user"></i> {{ "backend.menu.user"|trans }} <span class="fa fa-chevron-down"></span></a>#}
                         {#                                <ul class="nav child_menu">#}
                         {#                                    <li><a href="{{ path('forums') }}">{{ "backend.menu.manage"|trans }}</a></li>#}
@@ -281,7 +287,13 @@
                                     <li><a href="{{ path('association_index') }}">{{ "backend.menu.manage"|trans }}</a></li>
                                 </ul>
                             </li>
+                            <li><a><i class="fas fa-american-sign-language-interpreting"></i> Services <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('service_index_admin') }}">Gerer les services</a></li>
+                                </ul>
+                            </li>
                         {% endif %}
+
                         {% if is_granted("ROLE_PASSOCIATION") %}
                             <li><a><i class="fa fa-diamond"></i> {{ "backend.menu.opportunity"|trans }} <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
@@ -294,8 +306,8 @@
                             </li>
                         {% endif %}
                         {% if is_granted("ROLE_CONSULTANT") %}
-                            {#                            <li><a href="{{ path('service_index') }}"><i class="fas fa-american-sign-language-interpreting"></i> Services</a>#}
-                            {#                            </li>#}
+                                                        <li><a href="{{ path('service_index') }}"><i class="fas fa-american-sign-language-interpreting"></i> Services</a>
+                                                        </li>
                         {% endif %}
                         {% if is_granted("ROLE_PASSOCIATION") %}
                             <li><a><i class="fa fa-user"></i> {{ "backend.menu.association"|trans }} <span class="fa fa-chevron-down"></span></a>

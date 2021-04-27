@@ -67,6 +67,11 @@ class Opportunite
      */
     private $association;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isValid;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -199,4 +204,21 @@ class Opportunite
     public function __toString() {
         return $this->getTitre();
     }
+
+    public function getIsValid(): ?bool
+    {
+        return $this->isValid;
+    }
+
+    public function setIsValid(?bool $isValid): self
+    {
+        $this->isValid = $isValid;
+
+        return $this;
+    }
+    public function isValid(): ?bool
+    {
+        return $this->isValid;
+    }
+
 }

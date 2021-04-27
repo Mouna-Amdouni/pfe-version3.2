@@ -86,7 +86,7 @@
     </style>
 
     <h1 class="titre"> Consultants </h1>
-
+    {% if is_granted("ROLE_PASSOCIATION")   %}
     <div>
         <div>
 
@@ -108,7 +108,16 @@
                                             <h4 class="search-result-item-heading"><a href="#">{{ users.nomComplet }}</a></h4>
                                             <p class="info">Consultant</p>
                                             <p class="info">{{users.email}}</p>
-                                            <p class="description">Not just usual Metro. But something bigger. Not just usual widgets, but real widgets. Not just yet another admin template, but next generation admin template.</p>
+
+                                            {% for s in services | filter(services => services.isValid)  %}
+         {% if s.user.id is same as users.id %}
+                                            <p class="info"><i class="fas fa-arrow-right"></i>
+
+                                                {{s.type}}</p>
+             <p class="description">{{ s.description }}</p>
+
+         {% endif %}
+                                            {% endfor %}
                                         </div>
                                         <div class="col-sm-3 text-align-center">
 
@@ -129,5 +138,8 @@
             </div>
         </div>
     </div>
+    {% else %}
+    <h1>vous n'avez pas l'accés desolé :)</h1>
+    {% endif %}
 {% endblock %}
 
