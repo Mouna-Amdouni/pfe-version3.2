@@ -58,6 +58,7 @@
                                     </thead>
                                     <tbody>
                                     {% for s in services %}
+                                    {% if ( s.user is same  as app.user ) %}
                                         <tr>
                                             <td><input type="checkbox" class="chkgrp" name="chkgrp[]" value="{{ s.id }}"></td>
                                             <td>{{ s.type }}</td>
@@ -68,6 +69,7 @@
 
                                             {#                                                                        <td>{%  if categorie.categorieParente %} {{ categorie.categorieParente.libelle }} {% endif %}</td>#}
                                            </tr>
+                                     {% endif %}      
                                     {% endfor %}
                                     </tbody>
                                 </table>

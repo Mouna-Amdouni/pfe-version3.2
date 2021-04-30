@@ -365,7 +365,15 @@
                     </ul>
                 </nav>
             {% else %}
-                <a  href="#"><h5 class="navbar-right">cnx +inscrit</h5></a>
+                  <div >
+                      
+
+                        <ul class=" navbar-right">
+                            <li><a href="{{ path('app_admin_users') }}" ><span class="glyphicon glyphicon-log-in"></span> Login </a>  / <a href="{{path('register')}}"> Sign Up </a>
+                               
+                            </li>
+                        </ul>
+                    </div>
             {% endif%}
         </div>
     </div>

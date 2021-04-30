@@ -1,5 +1,47 @@
 {% extends "admin/bars.html.twig" %}
 {% block contenpage %}
+<style>
+    
+.container{ margin:auto;}
+img{ max-width:100%;}
+.inbox_people {
+  background: #f8f8f8 none repeat scroll 0 0;
+  float: left;
+  overflow: hidden;
+  width: 40%; border-right:1px solid #c4c4c4;
+}
+
+
+.chat_ib h5{ font-size:15px; color:#464646; margin:0 0 8px 0;}
+.chat_ib h5 span{ font-size:13px; float:right;}
+.chat_ib p{ font-size:14px; color:#989898; margin:auto}
+.chat_img {
+  float: left;
+  width: 11%;
+}
+.chat_ib {
+  float: left;
+  padding: 0 0 0 15px;
+  width: 88%;
+}
+
+.chat_people{ overflow:hidden; clear:both;}
+.chat_list {
+  border-bottom: 1px solid #c4c4c4;
+  margin: 0;
+  padding: 18px 16px 10px;
+}
+.inbox_chat { height: 550px; overflow-y: scroll;}
+
+.active_chat{ background:#ebebeb;}
+
+
+
+
+.messaging { padding: 0 0 50px 0;}
+
+
+</style>
 
 <h1>Salut {{ app.user.nomComplet }}</h1>
 {#    <a style="float : right ; background-color: blue ; color: white;#}
@@ -11,20 +53,44 @@
     </br>
     </br>
     </br>
-    <div class="w3-container">
-    <h2>Liste de vos anciennes conversations</h2>
+    
 
-    <div class="w3-ul w3-border">
+
+    <h2>Liste de vos anciennes conversations</h2>
+<div class="container">
+<div class="messaging">
+      
+   
+    
 
     {% for t in topics|filter(topics => not topics.deleted) | sort|reverse %}
 
     {% if ( t.author is same  as app.user ) %}
-        <p><h1><a href="{{ path('topic', {'id': t.id}) }}">{{ t.name }}</a><span style="float : right ; font-size: medium ">Creé le {{t.creationDate|date("d/m/Y") }}</span></h1></p>
+
+    <div class="chat_list active_chat">
+            <div class="chat_people">
+                <div class="chat_img"> <img class="msg-img" src=" {{ asset('uploads/images/'  ~ t.idConsultant.logo) }}" alt="Awesome Image"></div>
+                <div class="chat_ib">
+                  <h5> {{ t.idConsultant.nomComplet }} <span class="chat_date">{{t.creationDate|date("d/m/Y") }}</span></h5>
+                  <p><a href="{{ path('topic', {'id': t.id}) }}">{{ t.name }}</a> </p>
+                </div>
+            </div>
+    </div>
+          
+
+
+        
 {% endif %}
 
 
 
 {% endfor %}
-    </div>
-    </div>
+   
+  
+       
+      
+      
+      
+      
+    </div></div>
 {% endblock %}
