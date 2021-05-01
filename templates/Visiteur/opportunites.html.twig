@@ -167,18 +167,18 @@
 
             <div style="height: auto" class="m" href="#">
 
-                <div class="icon">
-                    {# <img src="http://muhammederdem.com.tr/reference/1.jpg" alt=""> #}
-
+  
+                         <div class="icon">
                     <img width="auto" height="150"
                          src=" {{ asset('uploads/images/'  ~ o.image) }}" alt="sample32"/>
                 </div>
                 <div class="content">
-                    <div class="title">{{ o.titre }} <span style="color:red; font-size: 12px" class="blog-date">    <i
+                    <div >
+                    <h3>{{ o.titre }} </h3> <span style="color:red; font-size: 12px" class="blog-date">    <i
                                     class="fa fa-bell"
                                     aria-hidden="true"></i>  Date Limite :                  {{ o.dateLimite | date('d/m/Y ') }}
 </span></div>
-                    <div class="rounded"></div>
+                   </br>
 
 
                     <div class="col-sm-9 mb-8">
@@ -194,9 +194,9 @@
                                 <h2 style=" color:#0c5460; font-family: Lobster;">Region concerné par cette opportunité
                                     : <i class="fa fa-map-marker "></i> {{ o.region }}</h2>
 
-                                <h2 style=" color:#0c5460; font-family: Lobster;">Type d'offre :{{ o.typeOffre }}</h2>
+                                <h2 style=" color:#lightslategrey; font-family: Lobster;"> <span style=" color:#0c5460;">  Type d'offre :</span> {{ o.typeOffre }}</h2>
                                 <h2 style=" color:#0c5460; font-family: Lobster;"> Details : </h2>
-                                <h2 style=" color:lightslategrey; font-family:'Times New Roman';"
+                                <h2 style=" color:#lightslategrey; font-family:'Times New Roman';"
                                     class="d-flex align-items-center mb-3">{{ o.description }}  </h2>
                             </div>
 

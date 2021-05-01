@@ -2,6 +2,7 @@
 
 
 {% block contenpage %}
+        <div class="x_content"><h3 style=" color:#0D3349; font-family: Lobster;">Les détails d'association {{ ass.titre }}</h3></div>
 
 
     <div class="container" xmlns="http://www.w3.org/1999/html">
@@ -148,7 +149,7 @@
         </div>
     </div>
     <div class="mt-3">
-        <div class="x_content">   <h1 style=" color:#0D3349; font-family: Lobster;"> Voir les dernieres  opportunités   de {{ ass.titre }}</h1></div>
+        <div class="x_content"><h3 style=" color:#0D3349; font-family: Lobster;">Les dernieres  opportunités publiées par {{ ass.titre }}</h3></div>
   </div>
     <div class="row">
     <div class="col-md-12">
@@ -159,28 +160,12 @@
     {% if ass.id is same as o.association.id %}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <div  class="card h-10">
+                        <img width="500" height="200"
+                                         src=" {{ asset('uploads/images/'  ~ o.image) }}" alt="sample32"/>
                             <div  class="card-body">
                                                            <h2 style="
-                                    color:darkgreen;
+                                    color:darkblue;
                                     font-family: Lobster;
                                 " id="video-info-section" class="layer" class="text-center infotxt">{{o.titre}}</h2>
                                 <span style="color:red; font-size: 12px" class="blog-date">    <i class="fa fa-bell" aria-hidden="true"></i>  Date Limite :                  {{ o.dateLimite | date('d/m/Y ') }}
@@ -195,11 +180,11 @@
                                 <h2 style=" color:#0c5460; font-family: Lobster;">Region concerné par cette opportunité : <i class="fa fa-map-marker "></i> {{ o.region}}</h2>
 
                                 <h2 style=" color:#0c5460; font-family: Lobster;">Type d'offre :{{ o.typeOffre }}</h2>
-                                <h2 style=" color:#0c5460; font-family: Lobster;">   Details : </h2>             <h2 style=" color:lightslategrey; font-family:'Times New Roman';" class="d-flex align-items-center mb-3">{{o.description }}  </h2>
+                                <h2 style=" color:#0c5460; font-family: Lobster;">   Details : </h2>             <h2 style=" color:darkblue; font-family:'Times New Roman';" class="d-flex align-items-center mb-3">{{o.description }}  </h2>
 
                             <div class="item-arrow">
                                 <a href="{{ o.lienFormPostul }}">
-                                    <i class="fa fa-long-arrow-right" aria-hidden="true"> <p style=" font-size:  15px"> Cliquer sur le fleche pour postuler</p></i></a>
+                                    <i class="fa fa-long-arrow-right" aria-hidden="true"> <p style=" font-size:  15px  ; color:#0c5460;"> Cliquer sur le fleche pour postuler</p></i></a>
                             </div>
 
                             </div>
