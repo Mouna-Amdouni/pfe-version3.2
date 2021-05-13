@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     images_directory: '%kernel.project_dir%/public/uploads/images'
+    cvs_directory: '%kernel.project_dir%/public/uploads/cvs'
+    videos_directory: '%kernel.project_dir%/public/uploads/videos'
     locale: 'en'
     app_locales: en|fr
 

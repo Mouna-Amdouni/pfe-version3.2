@@ -239,7 +239,7 @@
             <br />
 
             <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu ">
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu " style="height:400px;overflow:auto">
                 <div class="menu_section">
                     <ul class="nav side-menu">
                         <li><a href="{{ path('indexx') }}"><i class="fa fa-home"></i> {{ "backend.menu.home"|trans }}</a>
@@ -256,17 +256,20 @@
                         </li>
 
                           </li>
+
+                          <li><a href="{{ path('jeunes_index_user') }}"><i class="fa fa-male"></i>Jeunes Experts</a>
+                        </li>
                         <li><a href="{{ path('contact') }}"><i class="fa fa-paper-plane"></i> Contact</a>
                         </li>
                         {% if is_granted("ROLE_SUPERUSER") %}
 
-                            <li><a><i class="glyphicon glyphicon-envelope"></i> Gérer les Conversation <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="glyphicon glyphicon-envelope"></i> Conversations <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{path('adminchats')}}">{{ "backend.menu.manage"|trans }}</a></li>
                                 </ul>
                             </li>
 
-                            <li><a><i class="fa fa-diamond"></i>  Gèrer les opportunités <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-diamond"></i> Opportunités <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{ path('opportunitesAdmin') }}">{{ "backend.menu.manage"|trans }}</a></li>
                                 </ul>
@@ -296,6 +299,11 @@
                                     <li><a href="{{ path('service_index_admin') }}">Gerer les services</a></li>
                                 </ul>
                             </li>
+                              <li><a><i class="fa fa-suitcase"></i> Spécialites <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('specialite_index_admin') }}">Gerer les spécialites</a></li>
+                                </ul>
+                            </li>
                         {% endif %}
 
                         {% if is_granted("ROLE_PASSOCIATION") %}
@@ -313,6 +321,13 @@
                                                         <li><a href="{{ path('service_index') }}"><i class="fas fa-american-sign-language-interpreting"></i> Services</a>
                                                         </li>
                         {% endif %}
+
+                         {% if is_granted("ROLE_JEXPERT") %}
+                                                        <li><a href="{{ path('specialite_index') }}"><i class="fa fa-suitcase"></i> Spécialites</a>
+                                                        </li>
+                        {% endif %}
+
+
                         {% if is_granted("ROLE_PASSOCIATION") %}
                             <li><a><i class="fa fa-user"></i> {{ "backend.menu.association"|trans }} <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">

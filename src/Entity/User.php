@@ -142,6 +142,21 @@ class User implements UserInterface, EquatableInterface
      */
     private $topicsConsultant;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $cv;
+
+    /**
+     * @ORM\Column(type="string", length=255 , nullable=true)
+     */
+    private $video;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Specialite::class, mappedBy="user")
+     */
+    private $specialites;
+
 
     public function __construct()
     {
@@ -155,6 +170,7 @@ class User implements UserInterface, EquatableInterface
         $this->messages = new ArrayCollection();
         $this->opportunites = new ArrayCollection();
         $this->topicsConsultant = new ArrayCollection();
+        $this->specialites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -735,6 +751,60 @@ class User implements UserInterface, EquatableInterface
             // set the owning side to null (unless already changed)
             if ($service->getUser() === $this) {
                 $service->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getCv(): ?string
+    {
+        return $this->cv;
+    }
+
+    public function setCv(?string $cv): self
+    {
+        $this->cv = $cv;
+
+        return $this;
+    }
+
+    public function getVideo(): ?string
+    {
+        return $this->video;
+    }
+
+    public function setVideo(string $video): self
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|specialite[]
+     */
+    public function getSpecialites(): Collection
+    {
+        return $this->specialites;
+    }
+
+    public function addSpecialite(specialite $specialite): self
+    {
+        if (!$this->specialites->contains($specialite)) {
+            $this->specialites[] = $specialite;
+            $specialite->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpecialite(specialite $specialite): self
+    {
+        if ($this->specialites->removeElement($specialite)) {
+            // set the owning side to null (unless already changed)
+            if ($specialite->getUser() === $this) {
+                $specialite->setUser(null);
             }
         }
 

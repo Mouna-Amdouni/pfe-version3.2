@@ -10,6 +10,7 @@ use App\Form\ChangePwsdFormType;
 use App\Form\UserFormType;
 use App\Repository\RoleRepository;
 use App\Repository\ServiceRepository;
+use App\Repository\SpecialiteRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -242,6 +243,19 @@ class UserController extends BaseController
         ]);
     }
 
+   /**
+     * @Route("/JeunesExperts", name="jeunes_index_user", methods={"GET"})
+
+     */
+    public function indexUserJeunes(SpecialiteRepository $specialiteRepository,UserRepository $userRepository)
+    {  $users=$this->userRepository->findAll();
+        $specialites=$specialiteRepository->findAll();
+        return $this->render('Visiteur/jeunes.html.twig', [
+            'users' => $users,
+            'specialites'=>$specialites
+           
+        ]);
+    }
 
 
 

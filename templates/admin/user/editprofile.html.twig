@@ -25,7 +25,18 @@
                     </div>
                     <div class="x_content">
                         {{ form_start(editProfileform) }}
-                        {{ form_widget(editProfileform) }}
+                        {{form_row(editProfileform.username)}}
+                        {{form_row(editProfileform.email)}}
+                        {{form_row(editProfileform.nomComplet)}}
+                        {{form_row(editProfileform.logo)}}
+                        </br>
+                        </br>
+                        <h2>Pour les jeunes experts : </h2>
+                        {{form_row(editProfileform.cv)}}
+                        {{form_row(editProfileform.video)}}
+                        
+                       
+                        
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -33,7 +44,7 @@
                                 <button type="submit" name="valider" class="btn btn-success">{{ "backend.user.register"|trans }}</button>
                             </div>
                         </div>
-                        {{ form_end(editProfileform) }}
+                         {{ form_end(editProfileform) }}
                     </div>
                 </div>
             </div>

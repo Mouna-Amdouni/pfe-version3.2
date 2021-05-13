@@ -54,21 +54,52 @@ class ParamsUserController extends BaseController
         $form = $this->createForm(EditProfile::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
-
-            $file=$form->get('logo')->getData();
-            $fileName=md5(uniqid()).'.'.$file->guessExtension();
-
+           
+            $cvFile = $form->get('cv')->getData();
+            if ($cvFile) {
+            $cvfilename=md5(uniqid()).'.'.$cvFile->guessExtension();
             try {
-                $file->move(
-                    $this->getParameter('images_directory'),
-                    $fileName
+                $cvFile->move(
+                    $this->getParameter('cvs_directory'),
+                    $cvfilename
                 );
-            } catch (FileException $e) {
-                // ... handle exception if something happens during file upload
             }
-            $user->setLogo($fileName);
+                catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+                $user->setCv($cvfilename); 
+            }
+          
+                $file=$form->get('logo')->getData();
+                if ($file) {
+                $fileName=md5(uniqid()).'.'.$file->guessExtension();
+    
+                try {
+                    $file->move(
+                        $this->getParameter('images_directory'),
+                        $fileName
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+                $user->setLogo($fileName);
 
+            }
+
+            $videoFile = $form->get('video')->getData();
+            if ($videoFile) {
+            $videofilename=md5(uniqid()).'.'.$videoFile->guessExtension();
+            try {
+                $videoFile->move(
+                    $this->getParameter('videos_directory'),
+                    $videofilename
+                );
+            }
+                catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+                $user->setVideo($videofilename); 
+            }
 
 
             $this->entityManager->persist($user);
